@@ -5,10 +5,9 @@ import {defineConfig} from 'vite';
 
 export default defineConfig(() => {
   return {
-    // Set base path for GitHub Pages deployment
-    // In production, this will be replaced by the repository name
-    // For local development, it defaults to '/'
-    base: process.env.NODE_ENV === 'production' ? '/ReviewQR-Pro/' : '/',
+    // The GitHub Pages custom domain is served from the site root.
+    // Use VITE_BASE_PATH only when deploying a project-site URL instead.
+    base: process.env.VITE_BASE_PATH ?? '/',
     plugins: [react(), tailwindcss()],
     resolve: {
       alias: {
